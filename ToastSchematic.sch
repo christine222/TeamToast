@@ -11775,7 +11775,6 @@ W = angled&lt;p&gt;
 <part name="U3" library="DRV8839" deviceset="DRV8839_DSS_12" device=""/>
 <part name="U4" library="DRV8839" deviceset="DRV8839_DSS_12" device=""/>
 <part name="SUPPLY17" library="SparkFun-PowerSymbols" deviceset="V_BATT" device=""/>
-<part name="SUPPLY18" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY19" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY20" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -11896,7 +11895,6 @@ W = angled&lt;p&gt;
 <part name="S2" library="switch-tact" deviceset="DTSM-6" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
-<part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SV2" library="con-lsta" library_urn="urn:adsk.eagle:library:161" deviceset="FE06-1" device="" package3d_urn="urn:adsk.eagle:package:8191/1"/>
 <part name="+3V21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="SUPPLY16" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
@@ -11913,6 +11911,8 @@ W = angled&lt;p&gt;
 <part name="+3V23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V24" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
+<part name="SUPPLY18" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12573,7 +12573,6 @@ W = angled&lt;p&gt;
 <instance part="U3" gate="A" x="25.4" y="147.32"/>
 <instance part="U4" gate="A" x="25.4" y="101.6"/>
 <instance part="SUPPLY17" gate="G$1" x="25.4" y="149.86"/>
-<instance part="SUPPLY18" gate="GND" x="101.6" y="187.96"/>
 <instance part="SUPPLY19" gate="GND" x="91.44" y="154.94" rot="R180"/>
 <instance part="SUPPLY20" gate="GND" x="91.44" y="109.22" rot="R180"/>
 <instance part="+3V9" gate="G$1" x="20.32" y="129.54" rot="R90"/>
@@ -12682,7 +12681,6 @@ W = angled&lt;p&gt;
 <instance part="S2" gate="G$1" x="86.36" y="27.94"/>
 <instance part="P+4" gate="1" x="96.52" y="187.96" rot="R180"/>
 <instance part="P+5" gate="1" x="45.72" y="185.42" rot="R180"/>
-<instance part="SUPPLY14" gate="GND" x="50.8" y="187.96"/>
 <instance part="SV2" gate="G$1" x="215.9" y="40.64"/>
 <instance part="+3V21" gate="G$1" x="248.92" y="45.72" rot="R270"/>
 <instance part="U$4" gate="G$1" x="83.82" y="208.28"/>
@@ -12698,6 +12696,8 @@ W = angled&lt;p&gt;
 <instance part="+3V23" gate="G$1" x="195.58" y="109.22" rot="R90"/>
 <instance part="+3V24" gate="G$1" x="238.76" y="109.22" rot="R90"/>
 <instance part="+3V25" gate="G$1" x="238.76" y="160.02" rot="R90"/>
+<instance part="SUPPLY14" gate="G$1" x="50.8" y="185.42"/>
+<instance part="SUPPLY18" gate="G$1" x="101.6" y="185.42"/>
 </instances>
 <busses>
 </busses>
@@ -12773,16 +12773,6 @@ W = angled&lt;p&gt;
 <pinref part="C_M2" gate="G$1" pin="2"/>
 <pinref part="SUPPLY39" gate="GND" pin="GND"/>
 <wire x1="33.02" y1="119.38" x2="35.56" y2="119.38" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="SUPPLY14" gate="GND" pin="GND"/>
-<pinref part="U$4" gate="G$1" pin="L_GND"/>
-<wire x1="50.8" y1="195.58" x2="50.8" y2="190.5" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="SUPPLY18" gate="GND" pin="GND"/>
-<pinref part="U$4" gate="G$1" pin="R_GND"/>
-<wire x1="101.6" y1="190.5" x2="101.6" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="M_R_F" class="0">
@@ -12938,6 +12928,20 @@ W = angled&lt;p&gt;
 <pinref part="C_BUZ" gate="G$1" pin="2"/>
 <pinref part="SUPPLY35" gate="G$1" pin="DGND"/>
 <wire x1="66.04" y1="48.26" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="L_GND"/>
+<wire x1="50.8" y1="195.58" x2="50.8" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="SUPPLY14" gate="G$1" pin="DGND"/>
+<wire x1="50.8" y1="193.04" x2="50.8" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="187.96" x2="50.8" y2="190.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="R_GND"/>
+<wire x1="101.6" y1="190.5" x2="101.6" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="SUPPLY18" gate="G$1" pin="DGND"/>
+<wire x1="101.6" y1="193.04" x2="101.6" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="187.96" x2="101.6" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V_BATT" class="0">
