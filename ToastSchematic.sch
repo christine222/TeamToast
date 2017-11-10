@@ -8306,68 +8306,6 @@ part number 2062-2P from STA</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="shorts-old">
-<description>Hacks for connecting nets to work around no subnets</description>
-<packages>
-<package name="SHORT_TOP-50">
-<description>Short, top layer, 50mil width</description>
-<smd name="1" x="0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
-<smd name="2" x="-0.635" y="0" dx="1.27" dy="1.27" layer="1" stop="no" cream="no"/>
-<text x="-1.27" y="-2.032" size="1.27" layer="25" ratio="16">&gt;NAME</text>
-</package>
-<package name="SHORT_ALL-50">
-<description>Short, all layers, 50mil width</description>
-<pad name="1" x="-0.635" y="0" drill="0.7366" diameter="1.524"/>
-<pad name="2" x="0.635" y="0" drill="0.7366" diameter="1.524"/>
-<text x="-1.7145" y="-2.2225" size="1.27" layer="25" ratio="16">&gt;NAME</text>
-<text x="0.381" y="-0.889" size="0.762" layer="51" ratio="10" rot="R90">&gt;NAME</text>
-<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="1"/>
-<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="1"/>
-<rectangle x1="-0.254" y1="0.381" x2="0.254" y2="0.635" layer="16"/>
-<rectangle x1="-0.254" y1="-0.635" x2="0.254" y2="-0.381" layer="16"/>
-</package>
-</packages>
-<symbols>
-<symbol name="SHORT-H">
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.508" layer="94"/>
-<text x="-2.2225" y="1.27" size="1.778" layer="95">&gt;NAME</text>
-<pin name="P$1" x="-2.54" y="0" visible="off" length="point" swaplevel="1"/>
-<pin name="P$2" x="2.54" y="0" visible="off" length="point" swaplevel="1"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SHORT-H" prefix="SH">
-<description>Short between two nets</description>
-<gates>
-<gate name="G$1" symbol="SHORT-H" x="0" y="0" swaplevel="1"/>
-</gates>
-<devices>
-<device name="T5" package="SHORT_TOP-50">
-<connects>
-<connect gate="G$1" pin="P$1" pad="1"/>
-<connect gate="G$1" pin="P$2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="BOM" value="no"/>
-</technology>
-</technologies>
-</device>
-<device name="A5" package="SHORT_ALL-50">
-<connects>
-<connect gate="G$1" pin="P$1" pad="1"/>
-<connect gate="G$1" pin="P$2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="BOM" value="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-PowerSymbols">
 <description>&lt;h3&gt;SparkFun Power Symbols&lt;/h3&gt;
 This library contains power, ground, and voltage-supply symbols.
@@ -11731,6 +11669,49 @@ W = angled&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="splitter">
+<packages>
+<package name="SPLITTER">
+<smd name="1" x="0" y="0" dx="0.1016" dy="0.1016" layer="1" roundness="100" rot="R90" stop="no" thermals="no" cream="no"/>
+<smd name="2" x="0" y="0" dx="0.1016" dy="0.1016" layer="1" roundness="100" rot="R90" stop="no" thermals="no" cream="no"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SPLITTER">
+<wire x1="-2.54" y1="1.27" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-2.54" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.27" x2="1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="-3.81" y1="1.27" x2="-2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-3.81" y2="-1.27" width="0.1524" layer="94"/>
+<text x="-3.81" y="-3.302" size="1.27" layer="94">Splitter</text>
+<pin name="2" x="5.08" y="0" visible="pad" length="short" rot="R180"/>
+<pin name="1" x="-7.62" y="0" visible="pad" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SPLITTER">
+<gates>
+<gate name="G$1" symbol="SPLITTER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SPLITTER">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11766,9 +11747,6 @@ W = angled&lt;p&gt;
 <part name="BAT2" library="SparkFun-Connectors" deviceset="CONN_02" device="JST-PTH-2"/>
 <part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="AGND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="SH1" library="shorts-old" deviceset="SHORT-H" device="T5"/>
-<part name="SH2" library="shorts-old" deviceset="SHORT-H" device="T5"/>
 <part name="SUPPLY8" library="SparkFun-PowerSymbols" deviceset="V_BATT" device=""/>
 <part name="SUPPLY15" library="SparkFun-PowerSymbols" deviceset="V_BATT" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
@@ -11870,10 +11848,8 @@ W = angled&lt;p&gt;
 <part name="C_M1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="C_M2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="C_M3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
-<part name="SUPPLY36" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY37" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY38" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="SUPPLY39" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="U$2" library="TPS73633-and-More" deviceset="TPS73633" device=""/>
 <part name="U$3" library="TPS76850SOIC-8" deviceset="TPS76850(SOIC-8)" device=""/>
 <part name="C_VDD4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value=".1uF"/>
@@ -11913,6 +11889,10 @@ W = angled&lt;p&gt;
 <part name="+3V25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="SUPPLY18" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
+<part name="U$5" library="splitter" deviceset="SPLITTER" device=""/>
+<part name="U$8" library="splitter" deviceset="SPLITTER" device=""/>
+<part name="U$9" library="splitter" deviceset="SPLITTER" device=""/>
+<part name="AGND" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11955,11 +11935,8 @@ W = angled&lt;p&gt;
 <instance part="C_VDDA1" gate="G$1" x="185.42" y="38.1"/>
 <instance part="BAT1" gate="G$1" x="15.24" y="162.56" rot="R270"/>
 <instance part="BAT2" gate="G$1" x="27.94" y="162.56" rot="R270"/>
-<instance part="SUPPLY6" gate="G$1" x="22.86" y="147.32"/>
-<instance part="SUPPLY7" gate="GND" x="15.24" y="147.32"/>
-<instance part="AGND2" gate="VR1" x="33.02" y="147.32"/>
-<instance part="SH1" gate="G$1" x="20.32" y="149.86"/>
-<instance part="SH2" gate="G$1" x="30.48" y="149.86"/>
+<instance part="SUPPLY6" gate="G$1" x="38.1" y="137.16" rot="R90"/>
+<instance part="SUPPLY7" gate="GND" x="15.24" y="121.92"/>
 <instance part="SUPPLY8" gate="G$1" x="45.72" y="162.56"/>
 <instance part="SUPPLY15" gate="G$1" x="17.78" y="83.82" rot="R90"/>
 <instance part="U$2" gate="G$1" x="53.34" y="40.64"/>
@@ -11980,6 +11957,10 @@ W = angled&lt;p&gt;
 <instance part="C_VDD8" gate="G$1" x="68.58" y="30.48"/>
 <instance part="POWER_SWITCH" gate="G$1" x="45.72" y="144.78" rot="R90"/>
 <instance part="SUPPLY16" gate="G$1" x="119.38" y="96.52" rot="R270"/>
+<instance part="U$5" gate="G$1" x="27.94" y="137.16"/>
+<instance part="U$8" gate="G$1" x="27.94" y="132.08"/>
+<instance part="U$9" gate="G$1" x="27.94" y="127"/>
+<instance part="AGND" gate="VR1" x="50.8" y="132.08" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -12034,16 +12015,14 @@ W = angled&lt;p&gt;
 <wire x1="144.78" y1="55.88" x2="144.78" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SUPPLY6" gate="G$1" pin="DGND"/>
-<pinref part="SH1" gate="G$1" pin="P$2"/>
-<pinref part="SH2" gate="G$1" pin="P$1"/>
-<wire x1="22.86" y1="149.86" x2="27.94" y2="149.86" width="0.1524" layer="91" style="longdash"/>
-<junction x="22.86" y="149.86"/>
-</segment>
-<segment>
 <pinref part="U$1" gate="G$1" pin="BOOT0"/>
 <pinref part="SUPPLY16" gate="G$1" pin="DGND"/>
 <wire x1="127" y1="96.52" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="2"/>
+<pinref part="SUPPLY6" gate="G$1" pin="DGND"/>
+<wire x1="33.02" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -12067,8 +12046,9 @@ W = angled&lt;p&gt;
 <wire x1="175.26" y1="30.48" x2="175.26" y2="33.02" width="0.1524" layer="91" style="longdash"/>
 </segment>
 <segment>
-<pinref part="AGND2" gate="VR1" pin="AGND"/>
-<pinref part="SH2" gate="G$1" pin="P$2"/>
+<pinref part="U$8" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="132.08" x2="48.26" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="AGND" gate="VR1" pin="AGND"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -12080,12 +12060,21 @@ W = angled&lt;p&gt;
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="BAT1" gate="G$1" pin="1"/>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<wire x1="15.24" y1="154.94" x2="15.24" y2="149.86" width="0.1524" layer="91" style="longdash"/>
-<pinref part="SH1" gate="G$1" pin="P$1"/>
-<wire x1="15.24" y1="149.86" x2="17.78" y2="149.86" width="0.1524" layer="91" style="longdash"/>
-<junction x="15.24" y="149.86"/>
+<pinref part="BAT1" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="154.94" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="137.16" x2="15.24" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="132.08" x2="15.24" y2="127" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="127" x2="15.24" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="127" x2="15.24" y2="127" width="0.1524" layer="91"/>
+<junction x="15.24" y="127"/>
+<pinref part="U$8" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="132.08" x2="20.32" y2="132.08" width="0.1524" layer="91"/>
+<junction x="15.24" y="132.08"/>
+<pinref part="U$5" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="137.16" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
+<junction x="15.24" y="137.16"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="EN(BAR)"/>
@@ -12533,6 +12522,13 @@ W = angled&lt;p&gt;
 <wire x1="68.58" y1="33.02" x2="68.58" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="MGND" class="0">
+<segment>
+<pinref part="U$9" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="127" x2="35.56" y2="127" width="0.1524" layer="91"/>
+<label x="35.56" y="127" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -12673,10 +12669,8 @@ W = angled&lt;p&gt;
 <instance part="C_M1" gate="G$1" x="20.32" y="104.14" rot="R180"/>
 <instance part="C_M2" gate="G$1" x="27.94" y="119.38" rot="R90"/>
 <instance part="C_M3" gate="G$1" x="17.78" y="152.4" rot="R180"/>
-<instance part="SUPPLY36" gate="GND" x="38.1" y="76.2" rot="R90"/>
 <instance part="SUPPLY37" gate="GND" x="20.32" y="114.3" rot="R180"/>
 <instance part="SUPPLY38" gate="GND" x="22.86" y="157.48" rot="R90"/>
-<instance part="SUPPLY39" gate="GND" x="38.1" y="119.38" rot="R90"/>
 <instance part="S1" gate="G$1" x="73.66" y="27.94"/>
 <instance part="S2" gate="G$1" x="86.36" y="27.94"/>
 <instance part="P+4" gate="1" x="96.52" y="187.96" rot="R180"/>
@@ -12755,11 +12749,6 @@ W = angled&lt;p&gt;
 <junction x="91.44" y="147.32"/>
 </segment>
 <segment>
-<pinref part="C_M" gate="G$1" pin="2"/>
-<pinref part="SUPPLY36" gate="GND" pin="GND"/>
-<wire x1="33.02" y1="76.2" x2="35.56" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C_M1" gate="G$1" pin="2"/>
 <pinref part="SUPPLY37" gate="GND" pin="GND"/>
 <wire x1="20.32" y1="109.22" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
@@ -12768,11 +12757,6 @@ W = angled&lt;p&gt;
 <pinref part="C_M3" gate="G$1" pin="2"/>
 <pinref part="SUPPLY38" gate="GND" pin="GND"/>
 <wire x1="17.78" y1="157.48" x2="20.32" y2="157.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C_M2" gate="G$1" pin="2"/>
-<pinref part="SUPPLY39" gate="GND" pin="GND"/>
-<wire x1="33.02" y1="119.38" x2="35.56" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="M_R_F" class="0">
@@ -13670,6 +13654,18 @@ W = angled&lt;p&gt;
 <label x="215.9" y="83.82" size="1.778" layer="95" rot="R90" xref="yes"/>
 <pinref part="R22" gate="G$1" pin="1"/>
 <junction x="215.9" y="81.28"/>
+</segment>
+</net>
+<net name="MGND" class="0">
+<segment>
+<pinref part="C_M2" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="119.38" x2="35.56" y2="119.38" width="0.1524" layer="91"/>
+<label x="35.56" y="119.38" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="C_M" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="76.2" x2="35.56" y2="76.2" width="0.1524" layer="91"/>
+<label x="35.56" y="76.2" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
